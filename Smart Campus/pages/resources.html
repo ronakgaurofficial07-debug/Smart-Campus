@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Resources - Smart Campus</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        /* ===== RESOURCES PAGE ===== */
+
+        .resources-page {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .resources-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .resources-header .small-title {
+            color: #1683d8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .resources-header h1 {
+            font-size: 42px;
+            margin: 10px 0;
+            color: #172033;
+        }
+
+        .resources-header h1 span {
+            color: #1683d8;
+        }
+
+        .resources-header p {
+            color: #697386;
+            max-width: 650px;
+            margin: auto;
+            line-height: 1.6;
+        }
+
+        /* ===== SEARCH ===== */
+
+        .resource-search {
+            max-width: 650px;
+            margin: 0 auto 35px;
+        }
+
+        .resource-search input {
+            width: 100%;
+            box-sizing: border-box;
+            padding: 14px 18px;
+            border: 1px solid #d9dee7;
+            border-radius: 8px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        .resource-search input:focus {
+            border-color: #1683d8;
+        }
+
+        /* ===== RESOURCE GRID ===== */
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .resource-card {
+            background: white;
+            padding: 25px;
+            border-radius: 14px;
+            box-shadow: 0 7px 22px rgba(0, 0, 0, 0.07);
+            border-top: 4px solid #1683d8;
+            transition: 0.3s;
+        }
+
+        .resource-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .resource-icon {
+            width: 55px;
+            height: 55px;
+            border-radius: 12px;
+            background: #e9f5ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .resource-card h3 {
+            color: #172033;
+            font-size: 19px;
+            margin-bottom: 9px;
+        }
+
+        .resource-card p {
+            color: #697386;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 18px;
+        }
+
+        .resource-tag {
+            display: inline-block;
+            background: #e9f5ff;
+            color: #1683d8;
+            padding: 5px 10px;
+            border-radius: 15px;
+            font-size: 11px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .resource-button {
+            display: inline-block;
+            padding: 9px 15px;
+            background: #1683d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 13px;
+        }
+
+        .resource-button:hover {
+            background: #0f6fb8;
+        }
+
+        /* ===== NO RESULT ===== */
+
+        .resource-no-result {
+            display: none;
+            text-align: center;
+            padding: 40px;
+            color: #697386;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 900px) {
+
+            .resources-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .resources-page {
+                padding: 50px 18px;
+            }
+
+            .resources-header h1 {
+                font-size: 32px;
+            }
+
+            .resources-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===== NAVBAR ===== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎓 Smart Campus
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="notices.html">Notices</a>
+                </li>
+
+                <li>
+                    <a href="events.html">Events</a>
+                </li>
+
+                <li>
+                    <a href="timetable.html">Timetable</a>
+                </li>
+
+                <li>
+                    <a href="resources.html">Resources</a>
+                </li>
+
+                <li>
+                    <a href="feedback.html">Contact</a>
+                </li>
+
+                <li>
+                    <a href="login.html" class="login-button">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===== RESOURCES ===== -->
+
+    <main class="resources-page">
+
+
+        <div class="resources-header">
+
+            <p class="small-title">
+                STUDY & LEARNING
+            </p>
+
+            <h1>
+                Study <span>Resources</span>
+            </h1>
+
+            <p>
+                Access useful academic materials, notes,
+                programming resources and learning content
+                from one place.
+            </p>
+
+        </div>
+
+
+        <!-- ===== SEARCH ===== -->
+
+        <div class="resource-search">
+
+            <input
+                type="text"
+                id="resourceSearch"
+                placeholder="🔍 Search study resources..."
+            >
+
+        </div>
+
+
+        <!-- ===== RESOURCE CARDS ===== -->
+
+        <div
+            class="resources-grid"
+            id="resourcesGrid"
+        >
+
+
+            <!-- Resource 1 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    📚
+                </div>
+
+                <span class="resource-tag">
+                    NOTES
+                </span>
+
+                <h3>
+                    Data Structures & Algorithms
+                </h3>
+
+                <p>
+                    Study notes covering arrays,
+                    searching, sorting, stacks,
+                    queues and other important DSA topics.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+            <!-- Resource 2 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    💻
+                </div>
+
+                <span class="resource-tag">
+                    PROGRAMMING
+                </span>
+
+                <h3>
+                    C++ Programming
+                </h3>
+
+                <p>
+                    Useful C++ programming concepts,
+                    examples and practice material for
+                    students.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+            <!-- Resource 3 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    🌐
+                </div>
+
+                <span class="resource-tag">
+                    WEB TECHNOLOGY
+                </span>
+
+                <h3>
+                    HTML & CSS
+                </h3>
+
+                <p>
+                    Learn the fundamentals of HTML and CSS
+                    for creating structured and attractive
+                    websites.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+            <!-- Resource 4 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    ⚡
+                </div>
+
+                <span class="resource-tag">
+                    JAVASCRIPT
+                </span>
+
+                <h3>
+                    JavaScript Basics
+                </h3>
+
+                <p>
+                    Learn variables, functions, events,
+                    DOM manipulation and basic JavaScript
+                    programming.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+            <!-- Resource 5 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    🗄️
+                </div>
+
+                <span class="resource-tag">
+                    DATABASE
+                </span>
+
+                <h3>
+                    DBMS Study Material
+                </h3>
+
+                <p>
+                    Important database concepts including
+                    SQL, tables, keys, normalization and
+                    database management.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+            <!-- Resource 6 -->
+
+            <div class="resource-card">
+
+                <div class="resource-icon">
+                    🎥
+                </div>
+
+                <span class="resource-tag">
+                    VIDEO
+                </span>
+
+                <h3>
+                    Programming Video Lectures
+                </h3>
+
+                <p>
+                    Explore video-based learning resources
+                    for programming and technical subjects.
+                </p>
+
+                <a href="#" class="resource-button">
+                    View Resource
+                </a>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ===== NO RESULT ===== -->
+
+        <div
+            class="resource-no-result"
+            id="resourceNoResult"
+        >
+
+            <h3>
+                No resources found
+            </h3>
+
+            <p>
+                Try searching with another keyword.
+            </p>
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                🎓 Smart Campus
+            </h2>
+
+            <p>
+                Student Digital Hub
+            </p>
+
+            <div class="footer-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="notices.html">
+                    Notices
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="resources.html">
+                    Resources
+                </a>
+
+                <a href="feedback.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Smart Campus | Student Digital Hub
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ===== SEARCH JAVASCRIPT ===== -->
+
+    <script>
+
+        const resourceSearch =
+            document.getElementById("resourceSearch");
+
+        const resourceCards =
+            document.querySelectorAll(".resource-card");
+
+        const resourceNoResult =
+            document.getElementById("resourceNoResult");
+
+
+        resourceSearch.addEventListener(
+            "keyup",
+            function () {
+
+                const searchText =
+                    resourceSearch.value
+                    .toLowerCase()
+                    .trim();
+
+                let found = false;
+
+
+                resourceCards.forEach(
+                    function (card) {
+
+                        const cardText =
+                            card.innerText.toLowerCase();
+
+
+                        if (
+                            cardText.includes(searchText)
+                        ) {
+
+                            card.style.display = "block";
+
+                            found = true;
+
+                        } else {
+
+                            card.style.display = "none";
+
+                        }
+
+                    }
+                );
+
+
+                if (found) {
+
+                    resourceNoResult.style.display =
+                        "none";
+
+                } else {
+
+                    resourceNoResult.style.display =
+                        "block";
+
+                }
+
+            }
+        );
+
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,1485 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>3D Student Login - Smart Campus</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        /* =====================================================
+           SMART CAMPUS 3D LOGIN PAGE
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            overflow-x: hidden;
+        }
+
+
+        /* ================= NAVBAR ================= */
+
+        .navbar {
+            position: relative !important;
+            z-index: 100;
+        }
+
+
+        /* ================= 3D BACKGROUND ================= */
+
+        .login-3d-page {
+
+            min-height: calc(100vh - 75px);
+
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            padding: 60px 20px;
+
+            background:
+                radial-gradient(
+                    circle at 50% 50%,
+                    #123c63 0%,
+                    #071b31 40%,
+                    #020b18 100%
+                );
+
+            perspective: 1200px;
+        }
+
+
+        /* ================= GLOW ================= */
+
+        .glow {
+            position: absolute;
+
+            border-radius: 50%;
+
+            filter: blur(50px);
+
+            opacity: 0.45;
+
+            pointer-events: none;
+        }
+
+        .glow-one {
+            width: 280px;
+            height: 280px;
+
+            background: #1683d8;
+
+            top: 5%;
+            left: 8%;
+
+            animation: glowMove 7s infinite alternate ease-in-out;
+        }
+
+        .glow-two {
+            width: 250px;
+            height: 250px;
+
+            background: #4fc3f7;
+
+            bottom: 5%;
+            right: 8%;
+
+            animation: glowMove 9s infinite alternate-reverse ease-in-out;
+        }
+
+        @keyframes glowMove {
+
+            from {
+                transform: translate(0, 0);
+            }
+
+            to {
+                transform: translate(70px, -50px);
+            }
+
+        }
+
+
+        /* ================= PARTICLES ================= */
+
+        .particles {
+            position: absolute;
+
+            inset: 0;
+
+            overflow: hidden;
+
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+
+            width: 4px;
+            height: 4px;
+
+            background: #8bdcff;
+
+            border-radius: 50%;
+
+            box-shadow:
+                0 0 10px #4fc3f7;
+
+            animation: floatParticle linear infinite;
+        }
+
+        .p1 {
+            left: 10%;
+            bottom: -10px;
+            animation-duration: 9s;
+        }
+
+        .p2 {
+            left: 20%;
+            bottom: -10px;
+            animation-duration: 12s;
+            animation-delay: 2s;
+        }
+
+        .p3 {
+            left: 35%;
+            bottom: -10px;
+            animation-duration: 8s;
+            animation-delay: 1s;
+        }
+
+        .p4 {
+            left: 50%;
+            bottom: -10px;
+            animation-duration: 13s;
+            animation-delay: 3s;
+        }
+
+        .p5 {
+            left: 65%;
+            bottom: -10px;
+            animation-duration: 10s;
+            animation-delay: 2s;
+        }
+
+        .p6 {
+            left: 78%;
+            bottom: -10px;
+            animation-duration: 11s;
+        }
+
+        .p7 {
+            left: 90%;
+            bottom: -10px;
+            animation-duration: 14s;
+            animation-delay: 1s;
+        }
+
+        @keyframes floatParticle {
+
+            0% {
+                transform: translateY(0);
+                opacity: 0;
+            }
+
+            15% {
+                opacity: 1;
+            }
+
+            85% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100vh);
+                opacity: 0;
+            }
+
+        }
+
+
+        /* ================= 3D SCENE ================= */
+
+        .scene {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 1000px;
+
+            min-height: 580px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            transform-style: preserve-3d;
+
+            transition: transform 0.15s ease-out;
+
+            z-index: 5;
+        }
+
+
+        /* ================= 3D ORB ================= */
+
+        .orb {
+
+            position: absolute;
+
+            width: 330px;
+            height: 330px;
+
+            border-radius: 50%;
+
+            background:
+                radial-gradient(
+                    circle at 30% 25%,
+                    #75dcff,
+                    #1683d8 35%,
+                    #073866 70%,
+                    #021321 100%
+                );
+
+            box-shadow:
+
+                inset -30px -25px 50px rgba(0,0,0,0.5),
+
+                inset 20px 15px 30px rgba(255,255,255,0.15),
+
+                0 0 50px rgba(22,131,216,0.7),
+
+                0 0 120px rgba(22,131,216,0.3);
+
+            transform-style: preserve-3d;
+
+            animation: orbFloat 5s ease-in-out infinite;
+
+        }
+
+
+        @keyframes orbFloat {
+
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-18px) rotate(8deg);
+            }
+
+        }
+
+
+        /* ================= ORBIT RINGS ================= */
+
+        .orbit {
+
+            position: absolute;
+
+            border: 2px solid rgba(79,195,247,0.5);
+
+            border-radius: 50%;
+
+            transform-style: preserve-3d;
+
+            pointer-events: none;
+        }
+
+        .orbit-one {
+
+            width: 430px;
+            height: 150px;
+
+            transform:
+                rotateX(68deg)
+                rotateZ(15deg);
+
+            animation: orbitRotate 8s linear infinite;
+        }
+
+        .orbit-two {
+
+            width: 450px;
+            height: 170px;
+
+            transform:
+                rotateY(70deg)
+                rotateZ(-20deg);
+
+            border-color: rgba(255,255,255,0.25);
+
+            animation: orbitRotateTwo 10s linear infinite;
+        }
+
+        .orbit-three {
+
+            width: 380px;
+            height: 380px;
+
+            border-color: rgba(22,131,216,0.25);
+
+            animation: orbitRotateThree 14s linear infinite;
+        }
+
+        @keyframes orbitRotate {
+
+            from {
+                transform:
+                    rotateX(68deg)
+                    rotateZ(0deg);
+            }
+
+            to {
+                transform:
+                    rotateX(68deg)
+                    rotateZ(360deg);
+            }
+
+        }
+
+        @keyframes orbitRotateTwo {
+
+            from {
+                transform:
+                    rotateY(70deg)
+                    rotateZ(0deg);
+            }
+
+            to {
+                transform:
+                    rotateY(70deg)
+                    rotateZ(360deg);
+            }
+
+        }
+
+        @keyframes orbitRotateThree {
+
+            from {
+                transform: rotateX(65deg) rotateY(25deg);
+            }
+
+            to {
+                transform: rotateX(65deg) rotateY(385deg);
+            }
+
+        }
+
+
+        /* ================= ORBIT DOTS ================= */
+
+        .orbit-dot {
+
+            position: absolute;
+
+            width: 13px;
+            height: 13px;
+
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            box-shadow:
+                0 0 12px #4fc3f7,
+                0 0 25px #1683d8;
+
+            transform: translateZ(30px);
+
+        }
+
+        .dot-one {
+            top: 35px;
+            left: 100px;
+        }
+
+        .dot-two {
+            bottom: 50px;
+            right: 80px;
+        }
+
+
+        /* ================= CAP ================= */
+
+        .floating-cap {
+
+            position: absolute;
+
+            top: 55px;
+
+            left: 50%;
+
+            transform:
+                translateX(-50%)
+                translateZ(120px)
+                rotate(-10deg);
+
+            font-size: 62px;
+
+            filter:
+                drop-shadow(0 10px 15px rgba(0,0,0,0.4));
+
+            animation:
+                capFloat 3s ease-in-out infinite;
+
+            z-index: 10;
+        }
+
+        @keyframes capFloat {
+
+            0%, 100% {
+                transform:
+                    translateX(-50%)
+                    translateZ(120px)
+                    translateY(0)
+                    rotate(-10deg);
+            }
+
+            50% {
+                transform:
+                    translateX(-50%)
+                    translateZ(120px)
+                    translateY(-15px)
+                    rotate(5deg);
+            }
+
+        }
+
+
+        /* ================= LOGIN CARD ================= */
+
+        .login-card {
+
+            position: relative;
+
+            width: 100%;
+
+            max-width: 430px;
+
+            padding: 38px;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(255,255,255,0.18),
+                    rgba(255,255,255,0.06)
+                );
+
+            border:
+                1px solid rgba(255,255,255,0.25);
+
+            backdrop-filter: blur(20px);
+
+            -webkit-backdrop-filter: blur(20px);
+
+            box-shadow:
+
+                0 30px 80px rgba(0,0,0,0.45),
+
+                inset 0 1px 1px rgba(255,255,255,0.2);
+
+            color: white;
+
+            transform:
+                translateZ(180px);
+
+            z-index: 20;
+
+            transition:
+                transform 0.15s ease-out;
+        }
+
+
+        /* ================= CARD LIGHT ================= */
+
+        .card-light {
+
+            position: absolute;
+
+            width: 100px;
+            height: 100px;
+
+            border-radius: 50%;
+
+            background: #4fc3f7;
+
+            filter: blur(45px);
+
+            opacity: 0.25;
+
+            top: -30px;
+            right: -30px;
+
+            pointer-events: none;
+        }
+
+
+        /* ================= LOGIN HEADER ================= */
+
+        .login-header-3d {
+
+            text-align: center;
+
+            margin-bottom: 28px;
+        }
+
+
+        .login-logo {
+
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 12px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #1683d8,
+                    #4fc3f7
+                );
+
+            font-size: 30px;
+
+            box-shadow:
+                0 10px 30px rgba(22,131,216,0.45);
+
+            animation: logoPulse 3s infinite;
+        }
+
+        @keyframes logoPulse {
+
+            0%, 100% {
+                box-shadow:
+                    0 10px 30px rgba(22,131,216,0.35);
+            }
+
+            50% {
+                box-shadow:
+                    0 10px 45px rgba(79,195,247,0.7);
+            }
+
+        }
+
+
+        .login-header-3d h1 {
+
+            margin: 0 0 7px;
+
+            font-size: 28px;
+
+            color: white;
+        }
+
+
+        .login-header-3d h1 span {
+            color: #5bd3ff;
+        }
+
+
+        .login-header-3d p {
+
+            margin: 0;
+
+            color: rgba(255,255,255,0.7);
+
+            font-size: 13px;
+
+            line-height: 1.5;
+        }
+
+
+        /* ================= INPUT ================= */
+
+        .field {
+
+            margin-bottom: 18px;
+        }
+
+
+        .field label {
+
+            display: block;
+
+            margin-bottom: 7px;
+
+            font-size: 13px;
+
+            color: rgba(255,255,255,0.85);
+
+            font-weight: bold;
+        }
+
+
+        .input-box {
+
+            position: relative;
+        }
+
+
+        .input-box input {
+
+            width: 100%;
+
+            padding: 13px 44px 13px 14px;
+
+            border-radius: 10px;
+
+            border:
+                1px solid rgba(255,255,255,0.2);
+
+            outline: none;
+
+            background:
+                rgba(255,255,255,0.09);
+
+            color: white;
+
+            font-size: 14px;
+
+            transition: 0.25s;
+        }
+
+
+        .input-box input::placeholder {
+            color: rgba(255,255,255,0.45);
+        }
+
+
+        .input-box input:focus {
+
+            border-color: #4fc3f7;
+
+            background:
+                rgba(255,255,255,0.13);
+
+            box-shadow:
+                0 0 20px rgba(79,195,247,0.15);
+        }
+
+
+        .input-icon {
+
+            position: absolute;
+
+            right: 14px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            opacity: 0.7;
+        }
+
+
+        /* ================= PASSWORD BUTTON ================= */
+
+        .show-password {
+
+            position: absolute;
+
+            right: 10px;
+
+            top: 50%;
+
+            transform: translateY(-50%);
+
+            background: transparent;
+
+            border: none;
+
+            cursor: pointer;
+
+            font-size: 16px;
+        }
+
+
+        /* ================= OPTIONS ================= */
+
+        .options {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin: 5px 0 22px;
+
+            font-size: 12px;
+        }
+
+
+        .remember {
+
+            color: rgba(255,255,255,0.65);
+
+            display: flex;
+
+            gap: 6px;
+
+            align-items: center;
+        }
+
+
+        .remember input {
+            accent-color: #4fc3f7;
+        }
+
+
+        .forgot {
+
+            color: #5bd3ff;
+
+            text-decoration: none;
+        }
+
+
+        /* ================= LOGIN BUTTON ================= */
+
+        .login-btn {
+
+            width: 100%;
+
+            padding: 13px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            color: white;
+
+            font-size: 15px;
+
+            font-weight: bold;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    #126fc0,
+                    #1683d8,
+                    #4fc3f7
+                );
+
+            background-size: 200%;
+
+            box-shadow:
+                0 10px 25px rgba(22,131,216,0.3);
+
+            transition: 0.3s;
+
+            animation: buttonGradient 4s infinite;
+        }
+
+
+        .login-btn:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 15px 35px rgba(22,131,216,0.5);
+        }
+
+
+        @keyframes buttonGradient {
+
+            0% {
+                background-position: 0%;
+            }
+
+            50% {
+                background-position: 100%;
+            }
+
+            100% {
+                background-position: 0%;
+            }
+
+        }
+
+
+        /* ================= MESSAGE ================= */
+
+        .login-message {
+
+            display: none;
+
+            margin-top: 15px;
+
+            padding: 11px;
+
+            border-radius: 8px;
+
+            text-align: center;
+
+            background: rgba(50,200,120,0.15);
+
+            border:
+                1px solid rgba(50,200,120,0.3);
+
+            color: #8dffbd;
+
+            font-size: 12px;
+        }
+
+
+        /* ================= REGISTER ================= */
+
+        .register {
+
+            text-align: center;
+
+            margin-top: 22px;
+
+            padding-top: 20px;
+
+            border-top:
+                1px solid rgba(255,255,255,0.12);
+
+            color: rgba(255,255,255,0.6);
+
+            font-size: 13px;
+        }
+
+
+        .register a {
+
+            color: #5bd3ff;
+
+            text-decoration: none;
+
+            font-weight: bold;
+        }
+
+
+        /* ================= MOBILE ================= */
+
+        @media (max-width: 700px) {
+
+            .login-3d-page {
+                min-height: calc(100vh - 65px);
+
+                padding: 40px 15px;
+            }
+
+            .scene {
+                min-height: 560px;
+            }
+
+            .orb {
+                width: 280px;
+                height: 280px;
+            }
+
+            .orbit-one {
+                width: 350px;
+            }
+
+            .orbit-two {
+                width: 360px;
+            }
+
+            .orbit-three {
+                width: 330px;
+                height: 330px;
+            }
+
+            .login-card {
+                max-width: 390px;
+
+                padding: 30px 23px;
+
+                transform:
+                    translateZ(100px);
+            }
+
+            .floating-cap {
+                font-size: 50px;
+                top: 65px;
+            }
+
+        }
+
+
+        @media (max-width: 450px) {
+
+            .login-card {
+                padding: 28px 20px;
+            }
+
+            .login-header-3d h1 {
+                font-size: 24px;
+            }
+
+            .orb {
+                width: 230px;
+                height: 230px;
+            }
+
+            .orbit-one {
+                width: 290px;
+            }
+
+            .orbit-two {
+                width: 300px;
+            }
+
+            .orbit-three {
+                width: 270px;
+                height: 270px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ================= NAVBAR ================= -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎓 Smart Campus
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="../index.html">
+                        Home
+                    </a>
+                </li>
+
+                <li>
+                    <a href="about.html">
+                        About
+                    </a>
+                </li>
+
+                <li>
+                    <a href="notices.html">
+                        Notices
+                    </a>
+                </li>
+
+                <li>
+                    <a href="events.html">
+                        Events
+                    </a>
+                </li>
+
+                <li>
+                    <a href="timetable.html">
+                        Timetable
+                    </a>
+                </li>
+
+                <li>
+                    <a href="resources.html">
+                        Resources
+                    </a>
+                </li>
+
+                <li>
+                    <a href="feedback.html">
+                        Contact
+                    </a>
+                </li>
+
+                <li>
+                    <a href="login.html"
+                       class="login-button">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ================= 3D LOGIN ================= -->
+
+    <main class="login-3d-page">
+
+
+        <!-- GLOW -->
+
+        <div class="glow glow-one"></div>
+
+        <div class="glow glow-two"></div>
+
+
+        <!-- PARTICLES -->
+
+        <div class="particles">
+
+            <span class="particle p1"></span>
+            <span class="particle p2"></span>
+            <span class="particle p3"></span>
+            <span class="particle p4"></span>
+            <span class="particle p5"></span>
+            <span class="particle p6"></span>
+            <span class="particle p7"></span>
+
+        </div>
+
+
+        <!-- 3D SCENE -->
+
+        <div class="scene" id="scene">
+
+
+            <!-- 3D ORB -->
+
+            <div class="orb"></div>
+
+
+            <!-- ORBIT RINGS -->
+
+            <div class="orbit orbit-one">
+
+                <span class="orbit-dot dot-one"></span>
+
+            </div>
+
+
+            <div class="orbit orbit-two">
+
+                <span class="orbit-dot dot-two"></span>
+
+            </div>
+
+
+            <div class="orbit orbit-three"></div>
+
+
+            <!-- FLOATING CAP -->
+
+            <div class="floating-cap">
+                🎓
+            </div>
+
+
+            <!-- LOGIN CARD -->
+
+            <div class="login-card" id="loginCard">
+
+
+                <div class="card-light"></div>
+
+
+                <!-- HEADER -->
+
+                <div class="login-header-3d">
+
+                    <div class="login-logo">
+                        🎓
+                    </div>
+
+                    <h1>
+                        Student <span>Login</span>
+                    </h1>
+
+                    <p>
+                        Welcome back to your
+                        Smart Campus Digital Hub.
+                    </p>
+
+                </div>
+
+
+                <!-- FORM -->
+
+                <form id="loginForm">
+
+
+                    <!-- STUDENT ID -->
+
+                    <div class="field">
+
+                        <label for="studentId">
+                            Student ID / Email
+                        </label>
+
+                        <div class="input-box">
+
+                            <input
+                                type="text"
+                                id="studentId"
+                                placeholder="Enter Student ID or Email"
+                                required
+                            >
+
+                            <span class="input-icon">
+                                👤
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- PASSWORD -->
+
+                    <div class="field">
+
+                        <label for="password">
+                            Password
+                        </label>
+
+                        <div class="input-box">
+
+                            <input
+                                type="password"
+                                id="password"
+                                placeholder="Enter Password"
+                                required
+                            >
+
+                            <button
+                                type="button"
+                                class="show-password"
+                                id="showPassword"
+                            >
+                                👁️
+                            </button>
+
+                        </div>
+
+                    </div>
+
+
+                    <!-- OPTIONS -->
+
+                    <div class="options">
+
+                        <label class="remember">
+
+                            <input
+                                type="checkbox"
+                            >
+
+                            Remember me
+
+                        </label>
+
+
+                        <a
+                            href="#"
+                            class="forgot"
+                            onclick="forgotPassword()"
+                        >
+                            Forgot Password?
+                        </a>
+
+                    </div>
+
+
+                    <!-- BUTTON -->
+
+                    <button
+                        type="submit"
+                        class="login-btn"
+                    >
+                        Login to Smart Campus
+                    </button>
+
+
+                    <!-- SUCCESS -->
+
+                    <div
+                        class="login-message"
+                        id="loginMessage"
+                    >
+                        ✅ Login successful!
+                        Welcome to Smart Campus.
+                    </div>
+
+
+                </form>
+
+
+                <!-- REGISTER -->
+
+                <div class="register">
+
+                    Don't have an account?
+
+                    <a
+                        href="#"
+                        onclick="createAccount()"
+                    >
+                        Create Account
+                    </a>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                🎓 Smart Campus
+            </h2>
+
+            <p>
+                Student Digital Hub
+            </p>
+
+            <div class="footer-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="notices.html">
+                    Notices
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="resources.html">
+                    Resources
+                </a>
+
+                <a href="feedback.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Smart Campus | Student Digital Hub
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+
+        /* =========================================
+           3D MOUSE MOVEMENT
+        ========================================= */
+
+        const scene =
+            document.getElementById("scene");
+
+        const loginCard =
+            document.getElementById("loginCard");
+
+
+        document.addEventListener(
+            "mousemove",
+            function(event) {
+
+                if (window.innerWidth < 700) {
+                    return;
+                }
+
+
+                const x =
+                    (event.clientX /
+                    window.innerWidth - 0.5);
+
+
+                const y =
+                    (event.clientY /
+                    window.innerHeight - 0.5);
+
+
+                const rotateX =
+                    y * -8;
+
+                const rotateY =
+                    x * 10;
+
+
+                scene.style.transform =
+                    `rotateX(${rotateX}deg)
+                     rotateY(${rotateY}deg)`;
+
+
+                loginCard.style.transform =
+                    `translateZ(180px)
+                     rotateX(${rotateX * 0.4}deg)
+                     rotateY(${rotateY * 0.4}deg)`;
+
+            }
+        );
+
+
+        /* =========================================
+           RESET 3D POSITION
+        ========================================= */
+
+        document.addEventListener(
+            "mouseleave",
+            function() {
+
+                scene.style.transform =
+                    "rotateX(0deg) rotateY(0deg)";
+
+                loginCard.style.transform =
+                    "translateZ(180px)";
+
+            }
+        );
+
+
+        /* =========================================
+           SHOW / HIDE PASSWORD
+        ========================================= */
+
+        const password =
+            document.getElementById("password");
+
+        const showPassword =
+            document.getElementById("showPassword");
+
+
+        showPassword.addEventListener(
+            "click",
+            function() {
+
+                if (password.type === "password") {
+
+                    password.type = "text";
+
+                    showPassword.textContent =
+                        "🙈";
+
+                }
+
+                else {
+
+                    password.type = "password";
+
+                    showPassword.textContent =
+                        "👁️";
+
+                }
+
+            }
+        );
+
+
+        /* =========================================
+           LOGIN FORM
+        ========================================= */
+
+        const loginForm =
+            document.getElementById("loginForm");
+
+        const loginMessage =
+            document.getElementById("loginMessage");
+
+
+        loginForm.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+                loginMessage.style.display =
+                    "block";
+
+            }
+        );
+
+
+        /* =========================================
+           FORGOT PASSWORD
+        ========================================= */
+
+        function forgotPassword() {
+
+            event.preventDefault();
+
+            alert(
+                "Password recovery feature will be available soon."
+            );
+
+        }
+
+
+        /* =========================================
+           CREATE ACCOUNT
+        ========================================= */
+
+        function createAccount() {
+
+            event.preventDefault();
+
+            alert(
+                "Student registration feature will be available soon."
+            );
+
+        }
+
+    </script>
+
+
+</body>
+
+</html>

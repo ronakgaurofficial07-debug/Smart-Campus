@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Timetable - Smart Campus</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        /* ===== TIMETABLE PAGE ===== */
+
+        .timetable-page {
+            max-width: 1200px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .timetable-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .timetable-header .small-title {
+            color: #1683d8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .timetable-header h1 {
+            font-size: 42px;
+            margin: 10px 0;
+            color: #172033;
+        }
+
+        .timetable-header h1 span {
+            color: #1683d8;
+        }
+
+        .timetable-header p {
+            color: #697386;
+            line-height: 1.6;
+        }
+
+        /* ===== TABLE CONTAINER ===== */
+
+        .table-container {
+            width: 100%;
+            overflow-x: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0 7px 22px rgba(0, 0, 0, 0.07);
+        }
+
+        .timetable {
+            width: 100%;
+            min-width: 850px;
+            border-collapse: collapse;
+        }
+
+        .timetable th {
+            background: #1683d8;
+            color: white;
+            padding: 15px 12px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        .timetable td {
+            border: 1px solid #e1e5eb;
+            padding: 15px 10px;
+            text-align: center;
+            color: #4f5b6d;
+            font-size: 13px;
+        }
+
+        .timetable tbody tr:nth-child(even) {
+            background: #f8fbfe;
+        }
+
+        .timetable tbody tr:hover {
+            background: #eef7ff;
+        }
+
+        .time {
+            font-weight: bold;
+            color: #172033 !important;
+            background: #f1f6fa;
+        }
+
+        .break {
+            background: #fff7e6 !important;
+            color: #a66a00 !important;
+            font-weight: bold;
+        }
+
+        .subject {
+            font-weight: bold;
+            color: #172033;
+        }
+
+        .room {
+            display: block;
+            margin-top: 4px;
+            color: #1683d8;
+            font-size: 11px;
+        }
+
+        /* ===== NOTE ===== */
+
+        .timetable-note {
+            margin-top: 25px;
+            padding: 18px 20px;
+            background: #e9f5ff;
+            border-left: 4px solid #1683d8;
+            border-radius: 8px;
+            color: #4f5b6d;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        /* ===== MOBILE ===== */
+
+        @media (max-width: 600px) {
+
+            .timetable-page {
+                padding: 50px 18px;
+            }
+
+            .timetable-header h1 {
+                font-size: 32px;
+            }
+
+            .table-container {
+                padding: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===== NAVBAR ===== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎓 Smart Campus
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="notices.html">Notices</a>
+                </li>
+
+                <li>
+                    <a href="events.html">Events</a>
+                </li>
+
+                <li>
+                    <a href="timetable.html">Timetable</a>
+                </li>
+
+                <li>
+                    <a href="resources.html">Resources</a>
+                </li>
+
+                <li>
+                    <a href="feedback.html">Contact</a>
+                </li>
+
+                <li>
+                    <a href="login.html" class="login-button">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===== TIMETABLE ===== -->
+
+    <main class="timetable-page">
+
+
+        <div class="timetable-header">
+
+            <p class="small-title">
+                ACADEMIC SCHEDULE
+            </p>
+
+            <h1>
+                Class <span>Timetable</span>
+            </h1>
+
+            <p>
+                View your weekly class schedule,
+                subjects, timings and classrooms.
+            </p>
+
+        </div>
+
+
+        <!-- ===== TABLE ===== -->
+
+        <div class="table-container">
+
+            <table class="timetable">
+
+                <thead>
+
+                    <tr>
+
+                        <th>
+                            Time
+                        </th>
+
+                        <th>
+                            Monday
+                        </th>
+
+                        <th>
+                            Tuesday
+                        </th>
+
+                        <th>
+                            Wednesday
+                        </th>
+
+                        <th>
+                            Thursday
+                        </th>
+
+                        <th>
+                            Friday
+                        </th>
+
+                        <th>
+                            Saturday
+                        </th>
+
+                    </tr>
+
+                </thead>
+
+
+                <tbody>
+
+
+                    <!-- ROW 1 -->
+
+                    <tr>
+
+                        <td class="time">
+                            9:00 - 10:00
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ROW 2 -->
+
+                    <tr>
+
+                        <td class="time">
+                            10:00 - 11:00
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- BREAK -->
+
+                    <tr>
+
+                        <td class="time">
+                            11:00 - 11:15
+                        </td>
+
+                        <td colspan="6" class="break">
+                            ☕ Short Break
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ROW 3 -->
+
+                    <tr>
+
+                        <td class="time">
+                            11:15 - 12:15
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DSA</span>
+                            <span class="room">Room 101</span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ROW 4 -->
+
+                    <tr>
+
+                        <td class="time">
+                            12:15 - 1:15
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Web Tech</span>
+                            <span class="room">Lab 2</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">DBMS</span>
+                            <span class="room">Room 103</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">PHP</span>
+                            <span class="room">Lab 1</span>
+                        </td>
+
+                    </tr>
+
+
+                    <!-- LUNCH -->
+
+                    <tr>
+
+                        <td class="time">
+                            1:15 - 2:00
+                        </td>
+
+                        <td colspan="6" class="break">
+                            🍴 Lunch Break
+                        </td>
+
+                    </tr>
+
+
+                    <!-- ROW 5 -->
+
+                    <tr>
+
+                        <td class="time">
+                            2:00 - 3:00
+                        </td>
+
+                        <td>
+                            <span class="subject">Practical</span>
+                            <span class="room">Computer Lab</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Project</span>
+                            <span class="room">Lab 3</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Practical</span>
+                            <span class="room">Computer Lab</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Project</span>
+                            <span class="room">Lab 3</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Seminar</span>
+                            <span class="room">Seminar Hall</span>
+                        </td>
+
+                        <td>
+                            <span class="subject">Project</span>
+                            <span class="room">Lab 3</span>
+                        </td>
+
+                    </tr>
+
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+
+        <!-- ===== NOTE ===== -->
+
+        <div class="timetable-note">
+
+            <strong>📌 Note:</strong>
+
+            Timetable shown here is for demonstration
+            purposes. Students should check official
+            college announcements for any changes
+            in class timings or rooms.
+
+        </div>
+
+
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                🎓 Smart Campus
+            </h2>
+
+            <p>
+                Student Digital Hub
+            </p>
+
+            <div class="footer-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="notices.html">
+                    Notices
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="resources.html">
+                    Resources
+                </a>
+
+                <a href="feedback.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Smart Campus | Student Digital Hub
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>

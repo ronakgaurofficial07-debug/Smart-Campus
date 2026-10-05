@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Events - Smart Campus</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+
+        /* ===== EVENTS PAGE ===== */
+
+        .events-page {
+            max-width: 1100px;
+            margin: auto;
+            padding: 70px 25px;
+        }
+
+        .events-header {
+            text-align: center;
+            margin-bottom: 45px;
+        }
+
+        .events-header .small-title {
+            color: #1683d8;
+            font-size: 13px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .events-header h1 {
+            font-size: 42px;
+            margin: 10px 0;
+            color: #172033;
+        }
+
+        .events-header h1 span {
+            color: #1683d8;
+        }
+
+        .events-header .description {
+            max-width: 650px;
+            margin: auto;
+            color: #697386;
+            line-height: 1.6;
+        }
+
+        /* ===== EVENT GRID ===== */
+
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 14px;
+            overflow: hidden;
+            box-shadow: 0 7px 22px rgba(0, 0, 0, 0.07);
+            transition: 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-6px);
+        }
+
+        /* Event top */
+
+        .event-top {
+            height: 140px;
+            background: linear-gradient(
+                135deg,
+                #1683d8,
+                #4fc3f7
+            );
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            font-size: 55px;
+        }
+
+        .event-content {
+            padding: 22px;
+        }
+
+        .event-content h3 {
+            color: #172033;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .event-content p {
+            color: #697386;
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 15px;
+        }
+
+        .event-info {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            color: #596579;
+            font-size: 13px;
+        }
+
+        .event-info span {
+            display: block;
+        }
+
+        .event-button {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 9px 16px;
+            background: #1683d8;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-size: 13px;
+        }
+
+        .event-button:hover {
+            background: #0f6fb8;
+        }
+
+        /* ===== RESPONSIVE ===== */
+
+        @media (max-width: 900px) {
+
+            .events-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .events-page {
+                padding: 50px 18px;
+            }
+
+            .events-header h1 {
+                font-size: 32px;
+            }
+
+            .events-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ===== NAVBAR ===== -->
+
+    <header>
+
+        <nav class="navbar">
+
+            <div class="logo">
+                🎓 Smart Campus
+            </div>
+
+            <ul class="nav-links">
+
+                <li>
+                    <a href="../index.html">Home</a>
+                </li>
+
+                <li>
+                    <a href="about.html">About</a>
+                </li>
+
+                <li>
+                    <a href="notices.html">Notices</a>
+                </li>
+
+                <li>
+                    <a href="events.html">Events</a>
+                </li>
+
+                <li>
+                    <a href="timetable.html">Timetable</a>
+                </li>
+
+                <li>
+                    <a href="resources.html">Resources</a>
+                </li>
+
+                <li>
+                    <a href="feedback.html">Contact</a>
+                </li>
+
+                <li>
+                    <a href="login.html" class="login-button">
+                        Login
+                    </a>
+                </li>
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+
+    <!-- ===== EVENTS SECTION ===== -->
+
+    <main class="events-page">
+
+
+        <div class="events-header">
+
+            <p class="small-title">
+                CAMPUS ACTIVITIES
+            </p>
+
+            <h1>
+                Campus <span>Events</span>
+            </h1>
+
+            <p class="description">
+                Explore upcoming college events,
+                workshops, seminars and student activities.
+            </p>
+
+        </div>
+
+
+        <!-- ===== EVENT CARDS ===== -->
+
+        <div class="events-grid">
+
+
+            <!-- Event 1 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    🎓
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Student Orientation Programme
+                    </h3>
+
+                    <p>
+                        An orientation programme designed
+                        to help students understand campus
+                        facilities, academics and activities.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 10 October 2026
+                        </span>
+
+                        <span>
+                            ⏰ 10:00 AM
+                        </span>
+
+                        <span>
+                            📍 Main Auditorium
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 2 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    💻
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Web Development Workshop
+                    </h3>
+
+                    <p>
+                        Learn the fundamentals of HTML,
+                        CSS and JavaScript through a
+                        practical hands-on workshop.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 15 October 2026
+                        </span>
+
+                        <span>
+                            ⏰ 11:00 AM
+                        </span>
+
+                        <span>
+                            📍 Computer Lab
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 3 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    💼
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Placement Preparation Session
+                    </h3>
+
+                    <p>
+                        Improve aptitude, communication,
+                        technical skills and interview
+                        preparation for placements.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 20 October 2026
+                        </span>
+
+                        <span>
+                            ⏰ 02:00 PM
+                        </span>
+
+                        <span>
+                            📍 Seminar Hall
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 4 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    🏆
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Inter College Sports Event
+                    </h3>
+
+                    <p>
+                        Participate in different sports
+                        activities and represent your
+                        department in the competition.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 25 October 2026
+                        </span>
+
+                        <span>
+                            ⏰ 09:00 AM
+                        </span>
+
+                        <span>
+                            📍 College Ground
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 5 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    🚀
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Innovation & Startup Seminar
+                    </h3>
+
+                    <p>
+                        Discover entrepreneurship,
+                        innovation and ideas for building
+                        successful technology startups.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 30 October 2026
+                        </span>
+
+                        <span>
+                            ⏰ 12:00 PM
+                        </span>
+
+                        <span>
+                            📍 Innovation Centre
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Event 6 -->
+
+            <div class="event-card">
+
+                <div class="event-top">
+                    🎤
+                </div>
+
+                <div class="event-content">
+
+                    <h3>
+                        Annual Cultural Fest
+                    </h3>
+
+                    <p>
+                        Enjoy music, dance, cultural
+                        performances and various
+                        student competitions.
+                    </p>
+
+                    <div class="event-info">
+
+                        <span>
+                            📅 05 November 2026
+                        </span>
+
+                        <span>
+                            ⏰ 05:00 PM
+                        </span>
+
+                        <span>
+                            📍 College Campus
+                        </span>
+
+                    </div>
+
+                    <a href="#" class="event-button">
+                        View Details
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- ===== FOOTER ===== -->
+
+    <footer>
+
+        <div class="footer-content">
+
+            <h2>
+                🎓 Smart Campus
+            </h2>
+
+            <p>
+                Student Digital Hub
+            </p>
+
+            <div class="footer-links">
+
+                <a href="../index.html">
+                    Home
+                </a>
+
+                <a href="about.html">
+                    About
+                </a>
+
+                <a href="notices.html">
+                    Notices
+                </a>
+
+                <a href="events.html">
+                    Events
+                </a>
+
+                <a href="resources.html">
+                    Resources
+                </a>
+
+                <a href="feedback.html">
+                    Contact
+                </a>
+
+            </div>
+
+            <p class="copyright">
+                © 2026 Smart Campus | Student Digital Hub
+            </p>
+
+        </div>
+
+    </footer>
+
+
+</body>
+
+</html>
